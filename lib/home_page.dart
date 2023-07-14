@@ -9,6 +9,24 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: PreferredSize(
+        preferredSize: const Size(
+          double.infinity,
+          56.0,
+        ),
+        child: ClipRRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+            child: AppBar(
+              title: const Text('Glassmorphism Appbar'),
+              leading: const Icon(Icons.chevron_left),
+              elevation: 0.0,
+              backgroundColor: Colors.black.withOpacity(0.2),
+            ),
+          ),
+        ),
+      ),
       extendBody: true,
       // backgroundColor: Color(0xFF17205E),
       bottomNavigationBar: ClipRRect(
@@ -120,7 +138,7 @@ class HomePage extends StatelessWidget {
                 height: 20,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20),
                 child: Text(
                   'Explore Destination',
                   style: Theme.of(context)
